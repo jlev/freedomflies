@@ -1,0 +1,797 @@
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 1
+
+
+   1               		.file	"gpsmath.c"
+   2               		.arch atmega32
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.stabs	"/Users/jlev/Schoolwork/FreedomFlies/gps/",100,0,0,.Ltext0
+  11               		.stabs	"gpsmath.c",100,0,0,.Ltext0
+  12               		.text
+  13               	.Ltext0:
+  14               		.stabs	"gcc2_compiled.",60,0,0,0
+  15               		.stabs	"int:t(0,1)=r(0,1);-32768;32767;",128,0,0,0
+  16               		.stabs	"char:t(0,2)=r(0,2);0;127;",128,0,0,0
+  17               		.stabs	"long int:t(0,3)=@s32;r(0,3);0020000000000;0017777777777;",128,0,0,0
+  18               		.stabs	"unsigned int:t(0,4)=r(0,4);0000000000000;0000000177777;",128,0,0,0
+  19               		.stabs	"long unsigned int:t(0,5)=@s32;r(0,5);0000000000000;0037777777777;",128,0,0,0
+  20               		.stabs	"long long int:t(0,6)=@s64;r(0,6);01000000000000000000000;0777777777777777777777;",128,0,0,
+  21               		.stabs	"long long unsigned int:t(0,7)=@s64;r(0,7);0000000000000;01777777777777777777777;",128,0,0,
+  22               		.stabs	"short int:t(0,8)=r(0,8);-32768;32767;",128,0,0,0
+  23               		.stabs	"short unsigned int:t(0,9)=r(0,9);0000000000000;0000000177777;",128,0,0,0
+  24               		.stabs	"signed char:t(0,10)=@s8;r(0,10);-128;127;",128,0,0,0
+  25               		.stabs	"unsigned char:t(0,11)=@s8;r(0,11);0;255;",128,0,0,0
+  26               		.stabs	"float:t(0,12)=r(0,1);4;0;",128,0,0,0
+  27               		.stabs	"double:t(0,13)=r(0,1);4;0;",128,0,0,0
+  28               		.stabs	"long double:t(0,14)=r(0,1);4;0;",128,0,0,0
+  29               		.stabs	"complex int:t(0,15)=s4real:(0,1),0,16;imag:(0,1),16,16;;",128,0,0,0
+  30               		.stabs	"complex float:t(0,16)=R3;8;0;",128,0,0,0
+  31               		.stabs	"complex double:t(0,17)=R3;8;0;",128,0,0,0
+  32               		.stabs	"complex long double:t(0,18)=R3;8;0;",128,0,0,0
+  33               		.stabs	"void:t(0,19)=(0,19)",128,0,0,0
+  34               		.stabs	"__builtin_va_list:t(0,20)=*(0,19)",128,0,0,0
+  35               		.stabs	"_Bool:t(0,21)=@s8;-16;",128,0,0,0
+  36               		.stabs	"./gpsmath.h",130,0,0,0
+  37               		.stabs	"waypoint:T(1,1)=s8lat:(0,13),0,32;lon:(0,13),32,32;;",128,0,0,0
+  38               		.stabn	162,0,0,0
+  39               		.stabs	"dist:F(0,13)",36,0,4,dist
+  40               		.stabs	"from:p(1,1)",160,0,4,1
+  41               		.stabs	"to:p(1,1)",160,0,4,9
+  42               	.global	dist
+  43               		.type	dist, @function
+  44               	dist:
+   1:gpsmath.c     **** #include <gpsmath.h>
+   2:gpsmath.c     **** 
+   3:gpsmath.c     **** 
+   4:gpsmath.c     **** double dist(struct waypoint from, struct waypoint to){
+  45               		.stabn 68,0,4,.LM1-dist
+  46               	.LM1:
+  47               	/* prologue: frame size=24 */
+  48 0000 2F92      		push r2
+  49 0002 3F92      		push r3
+  50 0004 4F92      		push r4
+  51 0006 5F92      		push r5
+  52 0008 6F92      		push r6
+  53 000a 7F92      		push r7
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 2
+
+
+  54 000c 8F92      		push r8
+  55 000e 9F92      		push r9
+  56 0010 AF92      		push r10
+  57 0012 BF92      		push r11
+  58 0014 CF92      		push r12
+  59 0016 DF92      		push r13
+  60 0018 EF92      		push r14
+  61 001a FF92      		push r15
+  62 001c 0F93      		push r16
+  63 001e 1F93      		push r17
+  64 0020 CF93      		push r28
+  65 0022 DF93      		push r29
+  66 0024 CDB7      		in r28,__SP_L__
+  67 0026 DEB7      		in r29,__SP_H__
+  68 0028 6897      		sbiw r28,24
+  69 002a 0FB6      		in __tmp_reg__,__SREG__
+  70 002c F894      		cli
+  71 002e DEBF      		out __SP_H__,r29
+  72 0030 0FBE      		out __SREG__,__tmp_reg__
+  73 0032 CDBF      		out __SP_L__,r28
+  74               	/* prologue end (size=26) */
+  75 0034 2983      		std Y+1,r18
+  76 0036 3A83      		std Y+2,r19
+  77 0038 4B83      		std Y+3,r20
+  78 003a 5C83      		std Y+4,r21
+  79 003c 6D83      		std Y+5,r22
+  80 003e 7E83      		std Y+6,r23
+  81 0040 8F83      		std Y+7,r24
+  82 0042 9887      		std Y+8,r25
+  83 0044 A986      		std Y+9,r10
+  84 0046 BA86      		std Y+10,r11
+  85 0048 CB86      		std Y+11,r12
+  86 004a DC86      		std Y+12,r13
+  87 004c ED86      		std Y+13,r14
+  88 004e FE86      		std Y+14,r15
+  89 0050 0F87      		std Y+15,r16
+  90 0052 188B      		std Y+16,r17
+   5:gpsmath.c     ****     double a, delta_lat, delta_lon;
+   6:gpsmath.c     **** 
+   7:gpsmath.c     ****     from.lat = from.lat* M_PI / 180;
+  91               		.stabn 68,0,7,.LM2-dist
+  92               	.LM2:
+  93 0054 8981      		ldd r24,Y+1
+  94 0056 9A81      		ldd r25,Y+2
+  95 0058 AB81      		ldd r26,Y+3
+  96 005a BC81      		ldd r27,Y+4
+  97 005c 2BED      		ldi r18,lo8(0x40490fdb)
+  98 005e 3FE0      		ldi r19,hi8(0x40490fdb)
+  99 0060 49E4      		ldi r20,hlo8(0x40490fdb)
+ 100 0062 50E4      		ldi r21,hhi8(0x40490fdb)
+ 101 0064 BC01      		movw r22,r24
+ 102 0066 CD01      		movw r24,r26
+ 103 0068 0E94 0000 		call __mulsf3
+ 104 006c DC01      		movw r26,r24
+ 105 006e CB01      		movw r24,r22
+ 106 0070 20E0      		ldi r18,lo8(0x43340000)
+ 107 0072 30E0      		ldi r19,hi8(0x43340000)
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 3
+
+
+ 108 0074 44E3      		ldi r20,hlo8(0x43340000)
+ 109 0076 53E4      		ldi r21,hhi8(0x43340000)
+ 110 0078 BC01      		movw r22,r24
+ 111 007a CD01      		movw r24,r26
+ 112 007c 0E94 0000 		call __divsf3
+ 113 0080 698B      		std Y+17,r22
+ 114 0082 7A8B      		std Y+18,r23
+ 115 0084 8B8B      		std Y+19,r24
+ 116 0086 9C8B      		std Y+20,r25
+ 117 0088 6983      		std Y+1,r22
+ 118 008a 7A83      		std Y+2,r23
+ 119 008c 8B83      		std Y+3,r24
+ 120 008e 9C83      		std Y+4,r25
+   8:gpsmath.c     ****     to.lat = to.lat*M_PI/180;
+ 121               		.stabn 68,0,8,.LM3-dist
+ 122               	.LM3:
+ 123 0090 8985      		ldd r24,Y+9
+ 124 0092 9A85      		ldd r25,Y+10
+ 125 0094 AB85      		ldd r26,Y+11
+ 126 0096 BC85      		ldd r27,Y+12
+ 127 0098 2BED      		ldi r18,lo8(0x40490fdb)
+ 128 009a 3FE0      		ldi r19,hi8(0x40490fdb)
+ 129 009c 49E4      		ldi r20,hlo8(0x40490fdb)
+ 130 009e 50E4      		ldi r21,hhi8(0x40490fdb)
+ 131 00a0 BC01      		movw r22,r24
+ 132 00a2 CD01      		movw r24,r26
+ 133 00a4 0E94 0000 		call __mulsf3
+ 134 00a8 DC01      		movw r26,r24
+ 135 00aa CB01      		movw r24,r22
+ 136 00ac 20E0      		ldi r18,lo8(0x43340000)
+ 137 00ae 30E0      		ldi r19,hi8(0x43340000)
+ 138 00b0 44E3      		ldi r20,hlo8(0x43340000)
+ 139 00b2 53E4      		ldi r21,hhi8(0x43340000)
+ 140 00b4 BC01      		movw r22,r24
+ 141 00b6 CD01      		movw r24,r26
+ 142 00b8 0E94 0000 		call __divsf3
+ 143 00bc 1B01      		movw r2,r22
+ 144 00be 2C01      		movw r4,r24
+ 145 00c0 6987      		std Y+9,r22
+ 146 00c2 7A87      		std Y+10,r23
+ 147 00c4 8B87      		std Y+11,r24
+ 148 00c6 9C87      		std Y+12,r25
+   9:gpsmath.c     ****     from.lon = from.lon*M_PI/180;
+ 149               		.stabn 68,0,9,.LM4-dist
+ 150               	.LM4:
+ 151 00c8 8D81      		ldd r24,Y+5
+ 152 00ca 9E81      		ldd r25,Y+6
+ 153 00cc AF81      		ldd r26,Y+7
+ 154 00ce B885      		ldd r27,Y+8
+ 155 00d0 2BED      		ldi r18,lo8(0x40490fdb)
+ 156 00d2 3FE0      		ldi r19,hi8(0x40490fdb)
+ 157 00d4 49E4      		ldi r20,hlo8(0x40490fdb)
+ 158 00d6 50E4      		ldi r21,hhi8(0x40490fdb)
+ 159 00d8 BC01      		movw r22,r24
+ 160 00da CD01      		movw r24,r26
+ 161 00dc 0E94 0000 		call __mulsf3
+ 162 00e0 DC01      		movw r26,r24
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 4
+
+
+ 163 00e2 CB01      		movw r24,r22
+ 164 00e4 20E0      		ldi r18,lo8(0x43340000)
+ 165 00e6 30E0      		ldi r19,hi8(0x43340000)
+ 166 00e8 44E3      		ldi r20,hlo8(0x43340000)
+ 167 00ea 53E4      		ldi r21,hhi8(0x43340000)
+ 168 00ec BC01      		movw r22,r24
+ 169 00ee CD01      		movw r24,r26
+ 170 00f0 0E94 0000 		call __divsf3
+ 171 00f4 3B01      		movw r6,r22
+ 172 00f6 4C01      		movw r8,r24
+ 173 00f8 6D83      		std Y+5,r22
+ 174 00fa 7E83      		std Y+6,r23
+ 175 00fc 8F83      		std Y+7,r24
+ 176 00fe 9887      		std Y+8,r25
+  10:gpsmath.c     ****     to.lon = to.lon*M_PI/180;
+ 177               		.stabn 68,0,10,.LM5-dist
+ 178               	.LM5:
+ 179 0100 8D85      		ldd r24,Y+13
+ 180 0102 9E85      		ldd r25,Y+14
+ 181 0104 AF85      		ldd r26,Y+15
+ 182 0106 B889      		ldd r27,Y+16
+ 183 0108 2BED      		ldi r18,lo8(0x40490fdb)
+ 184 010a 3FE0      		ldi r19,hi8(0x40490fdb)
+ 185 010c 49E4      		ldi r20,hlo8(0x40490fdb)
+ 186 010e 50E4      		ldi r21,hhi8(0x40490fdb)
+ 187 0110 BC01      		movw r22,r24
+ 188 0112 CD01      		movw r24,r26
+ 189 0114 0E94 0000 		call __mulsf3
+ 190 0118 DC01      		movw r26,r24
+ 191 011a CB01      		movw r24,r22
+ 192 011c 20E0      		ldi r18,lo8(0x43340000)
+ 193 011e 30E0      		ldi r19,hi8(0x43340000)
+ 194 0120 44E3      		ldi r20,hlo8(0x43340000)
+ 195 0122 53E4      		ldi r21,hhi8(0x43340000)
+ 196 0124 BC01      		movw r22,r24
+ 197 0126 CD01      		movw r24,r26
+ 198 0128 0E94 0000 		call __divsf3
+ 199 012c 7B01      		movw r14,r22
+ 200 012e 8C01      		movw r16,r24
+ 201 0130 6D87      		std Y+13,r22
+ 202 0132 7E87      		std Y+14,r23
+ 203 0134 8F87      		std Y+15,r24
+ 204 0136 988B      		std Y+16,r25
+  11:gpsmath.c     ****     
+  12:gpsmath.c     ****     delta_lat = to.lat - from.lat;
+ 205               		.stabn 68,0,12,.LM6-dist
+ 206               	.LM6:
+ 207 0138 2989      		ldd r18,Y+17
+ 208 013a 3A89      		ldd r19,Y+18
+ 209 013c 4B89      		ldd r20,Y+19
+ 210 013e 5C89      		ldd r21,Y+20
+ 211 0140 C201      		movw r24,r4
+ 212 0142 B101      		movw r22,r2
+ 213 0144 0E94 0000 		call __subsf3
+ 214 0148 5B01      		movw r10,r22
+ 215 014a 6C01      		movw r12,r24
+  13:gpsmath.c     ****     delta_lon = to.lon - from.lon;
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 5
+
+
+ 216               		.stabn 68,0,13,.LM7-dist
+ 217               	.LM7:
+ 218 014c A401      		movw r20,r8
+ 219 014e 9301      		movw r18,r6
+ 220 0150 C801      		movw r24,r16
+ 221 0152 B701      		movw r22,r14
+ 222 0154 0E94 0000 		call __subsf3
+ 223 0158 3B01      		movw r6,r22
+ 224 015a 4C01      		movw r8,r24
+  14:gpsmath.c     ****     
+  15:gpsmath.c     ****     a = sin(delta_lat/2) * sin(delta_lat/2) + cos(from.lat) * cos(to.lat) * sin(delta_lon/2) * sin(
+ 225               		.stabn 68,0,15,.LM8-dist
+ 226               	.LM8:
+ 227 015c 20E0      		ldi r18,lo8(0x3f000000)
+ 228 015e 30E0      		ldi r19,hi8(0x3f000000)
+ 229 0160 40E0      		ldi r20,hlo8(0x3f000000)
+ 230 0162 5FE3      		ldi r21,hhi8(0x3f000000)
+ 231 0164 C601      		movw r24,r12
+ 232 0166 B501      		movw r22,r10
+ 233 0168 0E94 0000 		call __mulsf3
+ 234 016c DC01      		movw r26,r24
+ 235 016e CB01      		movw r24,r22
+ 236 0170 BC01      		movw r22,r24
+ 237 0172 CD01      		movw r24,r26
+ 238 0174 0E94 0000 		call sin
+ 239 0178 DC01      		movw r26,r24
+ 240 017a CB01      		movw r24,r22
+ 241 017c 9C01      		movw r18,r24
+ 242 017e AD01      		movw r20,r26
+ 243 0180 BC01      		movw r22,r24
+ 244 0182 CD01      		movw r24,r26
+ 245 0184 0E94 0000 		call __mulsf3
+ 246 0188 6D8B      		std Y+21,r22
+ 247 018a 7E8B      		std Y+22,r23
+ 248 018c 8F8B      		std Y+23,r24
+ 249 018e 988F      		std Y+24,r25
+ 250 0190 6989      		ldd r22,Y+17
+ 251 0192 7A89      		ldd r23,Y+18
+ 252 0194 8B89      		ldd r24,Y+19
+ 253 0196 9C89      		ldd r25,Y+20
+ 254 0198 0E94 0000 		call cos
+ 255 019c 7B01      		movw r14,r22
+ 256 019e 8C01      		movw r16,r24
+ 257 01a0 C201      		movw r24,r4
+ 258 01a2 B101      		movw r22,r2
+ 259 01a4 0E94 0000 		call cos
+ 260 01a8 DC01      		movw r26,r24
+ 261 01aa CB01      		movw r24,r22
+ 262 01ac 9C01      		movw r18,r24
+ 263 01ae AD01      		movw r20,r26
+ 264 01b0 C801      		movw r24,r16
+ 265 01b2 B701      		movw r22,r14
+ 266 01b4 0E94 0000 		call __mulsf3
+ 267 01b8 5B01      		movw r10,r22
+ 268 01ba 6C01      		movw r12,r24
+ 269 01bc 20E0      		ldi r18,lo8(0x3f000000)
+ 270 01be 30E0      		ldi r19,hi8(0x3f000000)
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 6
+
+
+ 271 01c0 40E0      		ldi r20,hlo8(0x3f000000)
+ 272 01c2 5FE3      		ldi r21,hhi8(0x3f000000)
+ 273 01c4 C401      		movw r24,r8
+ 274 01c6 B301      		movw r22,r6
+ 275 01c8 0E94 0000 		call __mulsf3
+ 276 01cc DC01      		movw r26,r24
+ 277 01ce CB01      		movw r24,r22
+ 278 01d0 BC01      		movw r22,r24
+ 279 01d2 CD01      		movw r24,r26
+ 280 01d4 0E94 0000 		call sin
+ 281 01d8 7B01      		movw r14,r22
+ 282 01da 8C01      		movw r16,r24
+ 283 01dc 9B01      		movw r18,r22
+ 284 01de AC01      		movw r20,r24
+ 285 01e0 C601      		movw r24,r12
+ 286 01e2 B501      		movw r22,r10
+ 287 01e4 0E94 0000 		call __mulsf3
+ 288 01e8 DC01      		movw r26,r24
+ 289 01ea CB01      		movw r24,r22
+ 290 01ec A801      		movw r20,r16
+ 291 01ee 9701      		movw r18,r14
+ 292 01f0 BC01      		movw r22,r24
+ 293 01f2 CD01      		movw r24,r26
+ 294 01f4 0E94 0000 		call __mulsf3
+ 295 01f8 DC01      		movw r26,r24
+ 296 01fa CB01      		movw r24,r22
+ 297 01fc 9C01      		movw r18,r24
+ 298 01fe AD01      		movw r20,r26
+ 299 0200 6D89      		ldd r22,Y+21
+ 300 0202 7E89      		ldd r23,Y+22
+ 301 0204 8F89      		ldd r24,Y+23
+ 302 0206 988D      		ldd r25,Y+24
+ 303 0208 0E94 0000 		call __addsf3
+ 304 020c 5B01      		movw r10,r22
+ 305 020e 6C01      		movw r12,r24
+  16:gpsmath.c     ****     a = 2 * atan2(sqrt(a), sqrt(1-a));
+ 306               		.stabn 68,0,16,.LM9-dist
+ 307               	.LM9:
+ 308 0210 9B01      		movw r18,r22
+ 309 0212 AC01      		movw r20,r24
+ 310 0214 60E0      		ldi r22,lo8(0x3f800000)
+ 311 0216 70E0      		ldi r23,hi8(0x3f800000)
+ 312 0218 80E8      		ldi r24,hlo8(0x3f800000)
+ 313 021a 9FE3      		ldi r25,hhi8(0x3f800000)
+ 314 021c 0E94 0000 		call __subsf3
+ 315 0220 DC01      		movw r26,r24
+ 316 0222 CB01      		movw r24,r22
+ 317 0224 BC01      		movw r22,r24
+ 318 0226 CD01      		movw r24,r26
+ 319 0228 0E94 0000 		call sqrt
+ 320 022c 7B01      		movw r14,r22
+ 321 022e 8C01      		movw r16,r24
+ 322 0230 C601      		movw r24,r12
+ 323 0232 B501      		movw r22,r10
+ 324 0234 0E94 0000 		call sqrt
+ 325 0238 DC01      		movw r26,r24
+ 326 023a CB01      		movw r24,r22
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 7
+
+
+ 327 023c A801      		movw r20,r16
+ 328 023e 9701      		movw r18,r14
+ 329 0240 BC01      		movw r22,r24
+ 330 0242 CD01      		movw r24,r26
+ 331 0244 0E94 0000 		call atan2
+ 332 0248 DC01      		movw r26,r24
+ 333 024a CB01      		movw r24,r22
+ 334 024c 9C01      		movw r18,r24
+ 335 024e AD01      		movw r20,r26
+ 336 0250 BC01      		movw r22,r24
+ 337 0252 CD01      		movw r24,r26
+ 338 0254 0E94 0000 		call __addsf3
+ 339 0258 DC01      		movw r26,r24
+ 340 025a CB01      		movw r24,r22
+  17:gpsmath.c     ****     a = R * a;
+ 341               		.stabn 68,0,17,.LM10-dist
+ 342               	.LM10:
+ 343 025c 20E0      		ldi r18,lo8(0x45c71800)
+ 344 025e 38E1      		ldi r19,hi8(0x45c71800)
+ 345 0260 47EC      		ldi r20,hlo8(0x45c71800)
+ 346 0262 55E4      		ldi r21,hhi8(0x45c71800)
+ 347 0264 BC01      		movw r22,r24
+ 348 0266 CD01      		movw r24,r26
+ 349 0268 0E94 0000 		call __mulsf3
+ 350 026c DC01      		movw r26,r24
+ 351 026e CB01      		movw r24,r22
+  18:gpsmath.c     ****     
+  19:gpsmath.c     ****     return a;
+  20:gpsmath.c     **** }
+ 352               		.stabn 68,0,20,.LM11-dist
+ 353               	.LM11:
+ 354 0270 BC01      		movw r22,r24
+ 355 0272 CD01      		movw r24,r26
+ 356               	/* epilogue: frame size=24 */
+ 357 0274 6896      		adiw r28,24
+ 358 0276 0FB6      		in __tmp_reg__,__SREG__
+ 359 0278 F894      		cli
+ 360 027a DEBF      		out __SP_H__,r29
+ 361 027c 0FBE      		out __SREG__,__tmp_reg__
+ 362 027e CDBF      		out __SP_L__,r28
+ 363 0280 DF91      		pop r29
+ 364 0282 CF91      		pop r28
+ 365 0284 1F91      		pop r17
+ 366 0286 0F91      		pop r16
+ 367 0288 FF90      		pop r15
+ 368 028a EF90      		pop r14
+ 369 028c DF90      		pop r13
+ 370 028e CF90      		pop r12
+ 371 0290 BF90      		pop r11
+ 372 0292 AF90      		pop r10
+ 373 0294 9F90      		pop r9
+ 374 0296 8F90      		pop r8
+ 375 0298 7F90      		pop r7
+ 376 029a 6F90      		pop r6
+ 377 029c 5F90      		pop r5
+ 378 029e 4F90      		pop r4
+ 379 02a0 3F90      		pop r3
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 8
+
+
+ 380 02a2 2F90      		pop r2
+ 381 02a4 0895      		ret
+ 382               	/* epilogue end (size=25) */
+ 383               	/* function dist size 339 (288) */
+ 384               		.size	dist, .-dist
+ 385               	.Lscope0:
+ 386               		.stabs	"",36,0,0,.Lscope0-dist
+ 387               		.stabs	"bearing:F(0,13)",36,0,22,bearing
+ 388               		.stabs	"from:p(1,1)",160,0,22,1
+ 389               		.stabs	"to:p(1,1)",160,0,22,9
+ 390               	.global	bearing
+ 391               		.type	bearing, @function
+ 392               	bearing:
+  21:gpsmath.c     **** 
+  22:gpsmath.c     **** double bearing(struct waypoint from, struct waypoint to){
+ 393               		.stabn 68,0,22,.LM12-bearing
+ 394               	.LM12:
+ 395               	/* prologue: frame size=24 */
+ 396 02a6 2F92      		push r2
+ 397 02a8 3F92      		push r3
+ 398 02aa 4F92      		push r4
+ 399 02ac 5F92      		push r5
+ 400 02ae 6F92      		push r6
+ 401 02b0 7F92      		push r7
+ 402 02b2 8F92      		push r8
+ 403 02b4 9F92      		push r9
+ 404 02b6 AF92      		push r10
+ 405 02b8 BF92      		push r11
+ 406 02ba CF92      		push r12
+ 407 02bc DF92      		push r13
+ 408 02be EF92      		push r14
+ 409 02c0 FF92      		push r15
+ 410 02c2 0F93      		push r16
+ 411 02c4 1F93      		push r17
+ 412 02c6 CF93      		push r28
+ 413 02c8 DF93      		push r29
+ 414 02ca CDB7      		in r28,__SP_L__
+ 415 02cc DEB7      		in r29,__SP_H__
+ 416 02ce 6897      		sbiw r28,24
+ 417 02d0 0FB6      		in __tmp_reg__,__SREG__
+ 418 02d2 F894      		cli
+ 419 02d4 DEBF      		out __SP_H__,r29
+ 420 02d6 0FBE      		out __SREG__,__tmp_reg__
+ 421 02d8 CDBF      		out __SP_L__,r28
+ 422               	/* prologue end (size=26) */
+ 423 02da 2983      		std Y+1,r18
+ 424 02dc 3A83      		std Y+2,r19
+ 425 02de 4B83      		std Y+3,r20
+ 426 02e0 5C83      		std Y+4,r21
+ 427 02e2 6D83      		std Y+5,r22
+ 428 02e4 7E83      		std Y+6,r23
+ 429 02e6 8F83      		std Y+7,r24
+ 430 02e8 9887      		std Y+8,r25
+ 431 02ea A986      		std Y+9,r10
+ 432 02ec BA86      		std Y+10,r11
+ 433 02ee CB86      		std Y+11,r12
+ 434 02f0 DC86      		std Y+12,r13
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 9
+
+
+ 435 02f2 ED86      		std Y+13,r14
+ 436 02f4 FE86      		std Y+14,r15
+ 437 02f6 0F87      		std Y+15,r16
+ 438 02f8 188B      		std Y+16,r17
+  23:gpsmath.c     ****     double a,b;
+  24:gpsmath.c     ****     
+  25:gpsmath.c     ****     from.lat = from.lat* M_PI / 180;
+ 439               		.stabn 68,0,25,.LM13-bearing
+ 440               	.LM13:
+ 441 02fa 8981      		ldd r24,Y+1
+ 442 02fc 9A81      		ldd r25,Y+2
+ 443 02fe AB81      		ldd r26,Y+3
+ 444 0300 BC81      		ldd r27,Y+4
+ 445 0302 2BED      		ldi r18,lo8(0x40490fdb)
+ 446 0304 3FE0      		ldi r19,hi8(0x40490fdb)
+ 447 0306 49E4      		ldi r20,hlo8(0x40490fdb)
+ 448 0308 50E4      		ldi r21,hhi8(0x40490fdb)
+ 449 030a BC01      		movw r22,r24
+ 450 030c CD01      		movw r24,r26
+ 451 030e 0E94 0000 		call __mulsf3
+ 452 0312 DC01      		movw r26,r24
+ 453 0314 CB01      		movw r24,r22
+ 454 0316 20E0      		ldi r18,lo8(0x43340000)
+ 455 0318 30E0      		ldi r19,hi8(0x43340000)
+ 456 031a 44E3      		ldi r20,hlo8(0x43340000)
+ 457 031c 53E4      		ldi r21,hhi8(0x43340000)
+ 458 031e BC01      		movw r22,r24
+ 459 0320 CD01      		movw r24,r26
+ 460 0322 0E94 0000 		call __divsf3
+ 461 0326 1B01      		movw r2,r22
+ 462 0328 2C01      		movw r4,r24
+ 463 032a 6983      		std Y+1,r22
+ 464 032c 7A83      		std Y+2,r23
+ 465 032e 8B83      		std Y+3,r24
+ 466 0330 9C83      		std Y+4,r25
+  26:gpsmath.c     ****     to.lat = to.lat*M_PI/180;
+ 467               		.stabn 68,0,26,.LM14-bearing
+ 468               	.LM14:
+ 469 0332 8985      		ldd r24,Y+9
+ 470 0334 9A85      		ldd r25,Y+10
+ 471 0336 AB85      		ldd r26,Y+11
+ 472 0338 BC85      		ldd r27,Y+12
+ 473 033a 2BED      		ldi r18,lo8(0x40490fdb)
+ 474 033c 3FE0      		ldi r19,hi8(0x40490fdb)
+ 475 033e 49E4      		ldi r20,hlo8(0x40490fdb)
+ 476 0340 50E4      		ldi r21,hhi8(0x40490fdb)
+ 477 0342 BC01      		movw r22,r24
+ 478 0344 CD01      		movw r24,r26
+ 479 0346 0E94 0000 		call __mulsf3
+ 480 034a DC01      		movw r26,r24
+ 481 034c CB01      		movw r24,r22
+ 482 034e 20E0      		ldi r18,lo8(0x43340000)
+ 483 0350 30E0      		ldi r19,hi8(0x43340000)
+ 484 0352 44E3      		ldi r20,hlo8(0x43340000)
+ 485 0354 53E4      		ldi r21,hhi8(0x43340000)
+ 486 0356 BC01      		movw r22,r24
+ 487 0358 CD01      		movw r24,r26
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 10
+
+
+ 488 035a 0E94 0000 		call __divsf3
+ 489 035e 5B01      		movw r10,r22
+ 490 0360 6C01      		movw r12,r24
+ 491 0362 6987      		std Y+9,r22
+ 492 0364 7A87      		std Y+10,r23
+ 493 0366 8B87      		std Y+11,r24
+ 494 0368 9C87      		std Y+12,r25
+  27:gpsmath.c     ****     from.lon = from.lon*M_PI/180;
+ 495               		.stabn 68,0,27,.LM15-bearing
+ 496               	.LM15:
+ 497 036a 8D81      		ldd r24,Y+5
+ 498 036c 9E81      		ldd r25,Y+6
+ 499 036e AF81      		ldd r26,Y+7
+ 500 0370 B885      		ldd r27,Y+8
+ 501 0372 2BED      		ldi r18,lo8(0x40490fdb)
+ 502 0374 3FE0      		ldi r19,hi8(0x40490fdb)
+ 503 0376 49E4      		ldi r20,hlo8(0x40490fdb)
+ 504 0378 50E4      		ldi r21,hhi8(0x40490fdb)
+ 505 037a BC01      		movw r22,r24
+ 506 037c CD01      		movw r24,r26
+ 507 037e 0E94 0000 		call __mulsf3
+ 508 0382 DC01      		movw r26,r24
+ 509 0384 CB01      		movw r24,r22
+ 510 0386 20E0      		ldi r18,lo8(0x43340000)
+ 511 0388 30E0      		ldi r19,hi8(0x43340000)
+ 512 038a 44E3      		ldi r20,hlo8(0x43340000)
+ 513 038c 53E4      		ldi r21,hhi8(0x43340000)
+ 514 038e BC01      		movw r22,r24
+ 515 0390 CD01      		movw r24,r26
+ 516 0392 0E94 0000 		call __divsf3
+ 517 0396 7B01      		movw r14,r22
+ 518 0398 8C01      		movw r16,r24
+ 519 039a 6D83      		std Y+5,r22
+ 520 039c 7E83      		std Y+6,r23
+ 521 039e 8F83      		std Y+7,r24
+ 522 03a0 9887      		std Y+8,r25
+  28:gpsmath.c     ****     to.lon = to.lon*M_PI/180;
+ 523               		.stabn 68,0,28,.LM16-bearing
+ 524               	.LM16:
+ 525 03a2 8D85      		ldd r24,Y+13
+ 526 03a4 9E85      		ldd r25,Y+14
+ 527 03a6 AF85      		ldd r26,Y+15
+ 528 03a8 B889      		ldd r27,Y+16
+ 529 03aa 2BED      		ldi r18,lo8(0x40490fdb)
+ 530 03ac 3FE0      		ldi r19,hi8(0x40490fdb)
+ 531 03ae 49E4      		ldi r20,hlo8(0x40490fdb)
+ 532 03b0 50E4      		ldi r21,hhi8(0x40490fdb)
+ 533 03b2 BC01      		movw r22,r24
+ 534 03b4 CD01      		movw r24,r26
+ 535 03b6 0E94 0000 		call __mulsf3
+ 536 03ba DC01      		movw r26,r24
+ 537 03bc CB01      		movw r24,r22
+ 538 03be 20E0      		ldi r18,lo8(0x43340000)
+ 539 03c0 30E0      		ldi r19,hi8(0x43340000)
+ 540 03c2 44E3      		ldi r20,hlo8(0x43340000)
+ 541 03c4 53E4      		ldi r21,hhi8(0x43340000)
+ 542 03c6 BC01      		movw r22,r24
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 11
+
+
+ 543 03c8 CD01      		movw r24,r26
+ 544 03ca 0E94 0000 		call __divsf3
+ 545 03ce DC01      		movw r26,r24
+ 546 03d0 CB01      		movw r24,r22
+ 547 03d2 8D87      		std Y+13,r24
+ 548 03d4 9E87      		std Y+14,r25
+ 549 03d6 AF87      		std Y+15,r26
+ 550 03d8 B88B      		std Y+16,r27
+  29:gpsmath.c     ****     
+  30:gpsmath.c     ****     a = sin(to.lon - from.lon)*cos(to.lat);
+ 551               		.stabn 68,0,30,.LM17-bearing
+ 552               	.LM17:
+ 553 03da A801      		movw r20,r16
+ 554 03dc 9701      		movw r18,r14
+ 555 03de BC01      		movw r22,r24
+ 556 03e0 CD01      		movw r24,r26
+ 557 03e2 0E94 0000 		call __subsf3
+ 558 03e6 698B      		std Y+17,r22
+ 559 03e8 7A8B      		std Y+18,r23
+ 560 03ea 8B8B      		std Y+19,r24
+ 561 03ec 9C8B      		std Y+20,r25
+ 562 03ee 0E94 0000 		call sin
+ 563 03f2 7B01      		movw r14,r22
+ 564 03f4 8C01      		movw r16,r24
+ 565 03f6 C601      		movw r24,r12
+ 566 03f8 B501      		movw r22,r10
+ 567 03fa 0E94 0000 		call cos
+ 568 03fe 3B01      		movw r6,r22
+ 569 0400 4C01      		movw r8,r24
+ 570 0402 9B01      		movw r18,r22
+ 571 0404 AC01      		movw r20,r24
+ 572 0406 C801      		movw r24,r16
+ 573 0408 B701      		movw r22,r14
+ 574 040a 0E94 0000 		call __mulsf3
+ 575 040e 6D8B      		std Y+21,r22
+ 576 0410 7E8B      		std Y+22,r23
+ 577 0412 8F8B      		std Y+23,r24
+ 578 0414 988F      		std Y+24,r25
+  31:gpsmath.c     ****     b = cos(from.lat)*sin(to.lat) - sin(from.lat)*cos(to.lat)*cos(to.lon-from.lon);
+ 579               		.stabn 68,0,31,.LM18-bearing
+ 580               	.LM18:
+ 581 0416 C201      		movw r24,r4
+ 582 0418 B101      		movw r22,r2
+ 583 041a 0E94 0000 		call cos
+ 584 041e 7B01      		movw r14,r22
+ 585 0420 8C01      		movw r16,r24
+ 586 0422 C601      		movw r24,r12
+ 587 0424 B501      		movw r22,r10
+ 588 0426 0E94 0000 		call sin
+ 589 042a DC01      		movw r26,r24
+ 590 042c CB01      		movw r24,r22
+ 591 042e 9C01      		movw r18,r24
+ 592 0430 AD01      		movw r20,r26
+ 593 0432 C801      		movw r24,r16
+ 594 0434 B701      		movw r22,r14
+ 595 0436 0E94 0000 		call __mulsf3
+ 596 043a 5B01      		movw r10,r22
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 12
+
+
+ 597 043c 6C01      		movw r12,r24
+ 598 043e C201      		movw r24,r4
+ 599 0440 B101      		movw r22,r2
+ 600 0442 0E94 0000 		call sin
+ 601 0446 DC01      		movw r26,r24
+ 602 0448 CB01      		movw r24,r22
+ 603 044a A401      		movw r20,r8
+ 604 044c 9301      		movw r18,r6
+ 605 044e BC01      		movw r22,r24
+ 606 0450 CD01      		movw r24,r26
+ 607 0452 0E94 0000 		call __mulsf3
+ 608 0456 7B01      		movw r14,r22
+ 609 0458 8C01      		movw r16,r24
+ 610 045a 6989      		ldd r22,Y+17
+ 611 045c 7A89      		ldd r23,Y+18
+ 612 045e 8B89      		ldd r24,Y+19
+ 613 0460 9C89      		ldd r25,Y+20
+ 614 0462 0E94 0000 		call cos
+ 615 0466 DC01      		movw r26,r24
+ 616 0468 CB01      		movw r24,r22
+ 617 046a 9C01      		movw r18,r24
+ 618 046c AD01      		movw r20,r26
+ 619 046e C801      		movw r24,r16
+ 620 0470 B701      		movw r22,r14
+ 621 0472 0E94 0000 		call __mulsf3
+ 622 0476 DC01      		movw r26,r24
+ 623 0478 CB01      		movw r24,r22
+ 624 047a 9C01      		movw r18,r24
+ 625 047c AD01      		movw r20,r26
+ 626 047e C601      		movw r24,r12
+ 627 0480 B501      		movw r22,r10
+ 628 0482 0E94 0000 		call __subsf3
+ 629 0486 DC01      		movw r26,r24
+ 630 0488 CB01      		movw r24,r22
+  32:gpsmath.c     ****     a = atan2(a,b)*180/M_PI;
+ 631               		.stabn 68,0,32,.LM19-bearing
+ 632               	.LM19:
+ 633 048a 9C01      		movw r18,r24
+ 634 048c AD01      		movw r20,r26
+ 635 048e 6D89      		ldd r22,Y+21
+ 636 0490 7E89      		ldd r23,Y+22
+ 637 0492 8F89      		ldd r24,Y+23
+ 638 0494 988D      		ldd r25,Y+24
+ 639 0496 0E94 0000 		call atan2
+ 640 049a DC01      		movw r26,r24
+ 641 049c CB01      		movw r24,r22
+ 642 049e 20E0      		ldi r18,lo8(0x43340000)
+ 643 04a0 30E0      		ldi r19,hi8(0x43340000)
+ 644 04a2 44E3      		ldi r20,hlo8(0x43340000)
+ 645 04a4 53E4      		ldi r21,hhi8(0x43340000)
+ 646 04a6 BC01      		movw r22,r24
+ 647 04a8 CD01      		movw r24,r26
+ 648 04aa 0E94 0000 		call __mulsf3
+ 649 04ae DC01      		movw r26,r24
+ 650 04b0 CB01      		movw r24,r22
+ 651 04b2 2BED      		ldi r18,lo8(0x40490fdb)
+ 652 04b4 3FE0      		ldi r19,hi8(0x40490fdb)
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 13
+
+
+ 653 04b6 49E4      		ldi r20,hlo8(0x40490fdb)
+ 654 04b8 50E4      		ldi r21,hhi8(0x40490fdb)
+ 655 04ba BC01      		movw r22,r24
+ 656 04bc CD01      		movw r24,r26
+ 657 04be 0E94 0000 		call __divsf3
+ 658 04c2 DC01      		movw r26,r24
+ 659 04c4 CB01      		movw r24,r22
+  33:gpsmath.c     ****     
+  34:gpsmath.c     ****     return a;
+  35:gpsmath.c     **** }
+ 660               		.stabn 68,0,35,.LM20-bearing
+ 661               	.LM20:
+ 662 04c6 BC01      		movw r22,r24
+ 663 04c8 CD01      		movw r24,r26
+ 664               	/* epilogue: frame size=24 */
+ 665 04ca 6896      		adiw r28,24
+ 666 04cc 0FB6      		in __tmp_reg__,__SREG__
+ 667 04ce F894      		cli
+ 668 04d0 DEBF      		out __SP_H__,r29
+ 669 04d2 0FBE      		out __SREG__,__tmp_reg__
+ 670 04d4 CDBF      		out __SP_L__,r28
+ 671 04d6 DF91      		pop r29
+ 672 04d8 CF91      		pop r28
+ 673 04da 1F91      		pop r17
+ 674 04dc 0F91      		pop r16
+ 675 04de FF90      		pop r15
+ 676 04e0 EF90      		pop r14
+ 677 04e2 DF90      		pop r13
+ 678 04e4 CF90      		pop r12
+ 679 04e6 BF90      		pop r11
+ 680 04e8 AF90      		pop r10
+ 681 04ea 9F90      		pop r9
+ 682 04ec 8F90      		pop r8
+ 683 04ee 7F90      		pop r7
+ 684 04f0 6F90      		pop r6
+ 685 04f2 5F90      		pop r5
+ 686 04f4 4F90      		pop r4
+ 687 04f6 3F90      		pop r3
+ 688 04f8 2F90      		pop r2
+ 689 04fa 0895      		ret
+ 690               	/* epilogue end (size=25) */
+ 691               	/* function bearing size 299 (248) */
+ 692               		.size	bearing, .-bearing
+ 693               	.Lscope1:
+ 694               		.stabs	"",36,0,0,.Lscope1-bearing
+ 695               		.text
+ 696               		.stabs "",100,0,0,Letext
+ 697               	Letext:
+ 698               	/* File "gpsmath.c": code  638 = 0x027e ( 536), prologues  52, epilogues  50 */
+GAS LISTING /var/tmp//cc2J4sxo.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gpsmath.c
+                            *ABS*:0000003f __SREG__
+                            *ABS*:0000003e __SP_H__
+                            *ABS*:0000003d __SP_L__
+                            *ABS*:00000000 __tmp_reg__
+                            *ABS*:00000001 __zero_reg__
+/var/tmp//cc2J4sxo.s:44     .text:00000000 dist
+/var/tmp//cc2J4sxo.s:392    .text:000002a6 bearing
+/var/tmp//cc2J4sxo.s:697    .text:000004fc Letext
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+__mulsf3
+__divsf3
+__subsf3
+sin
+cos
+__addsf3
+sqrt
+atan2

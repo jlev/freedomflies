@@ -1,0 +1,15 @@
+#A dictionary of preset joysticks, first entry is default
+#Hat is a list of buttons to be treated as a hat
+# if hat is of length one, the id will be used as the hat
+# if hat is > len[1], id is from north proceeding clockwise
+#ThrottleDir is a list of buttons to choose which direction throttle proceeds
+# only really useful on SaitekX45, where we've got the Aux1 switch
+# if only reverse is defined (forward is -1), then only go reverse when pushed
+
+
+{
+'Saitek AV8R-01':{'X':0,'Y':1,'Throttle':3,'ThrottleDir':[-1,-1],'Hat':[0]}, 
+'Logitech Wingman Attack2':{'X':0,'Y':1,'Throttle':2,'ThrottleDir':[3,-1],'Hat':[-1]},
+'Saitek X45':{'X':0,'Y':1,'Throttle':2,'ThrottleDir':[11,13],'Hat':[14,15,16,17]}
+}
+

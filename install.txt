@@ -1,0 +1,15 @@
+Installing mapscript
+
+This will require an update to MacPython 2.5
+http://pythonmac.org/packages/py25-fat/index.html
+
+You'll need numpy, pil, wx: all have binaries on that page
+
+PyObjC and Pygame don't have 2.5 installers yet, so you'll need to download and install those by hand
+
+Mapserver requires all sorts of GIS frameworks, available at:
+http://www.kyngchaos.com/software/unixport/frameworks
+Get the smaller framework install for mapserver itself at:
+http://www.kyngchaos.com/software/unixport/mapserver
+
+You should now be able to open python and import mapscript

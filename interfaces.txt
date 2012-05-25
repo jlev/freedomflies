@@ -1,0 +1,51 @@
+Interfaces:
+lastmod 26Feb07 jlev
+
+Hardware:
+Servos on PORT_C
+	Left, pin 0
+	Right, pin 1
+	Throttle, pin 2
+	Camera Pan, pin 3
+	Camera Tilt, pin 4
+
+Horizon Sensor
+	TBD
+GPS
+	TBD
+Airspeed
+	TBD
+Fuel
+	TBD
+Battery
+	TBD
+
+
+Software:
+
+Serial Protocol:
+
+initially, integer values 0-127
+eventually, ascii character values
+
+x <ascii code>\r\n
+
+uplink:
+l - left servo
+r - right servo
+t - throttle
+p - camera pan
+i - camera tilt
+
+downlink:
+q - horizon pitch - [-90,90], 30 hz
+w - horizon roll - [-180,180], 30 hz
+h - compass - [0,360] 1hz			//redefined to c
+a - gps latitude - 1hz
+o - gps longitude - 1hz
+z - altitude - [0,?] 1hz
+b - battery - [0,12], 1hz
+f - fuel - [0,100], 1hz
+s - airspeed - [0,?], 1 hz
+
+Ground Station Interfaces:
